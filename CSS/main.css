@@ -1,0 +1,231 @@
+/* =================================
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+body {
+	font: 1em/1.5 'Open Sans', sans-serif;
+	color: #373737;
+	background: #eaeaea;
+	margin: 0;
+}
+a {
+	text-decoration: none;
+	font-size: 1.1em;
+}
+h1,
+h2,
+h3 {
+	text-transform: uppercase;
+}
+h2 {
+	font-size: 1.125em;
+	color: #4a89ca;
+	font-weight: 600;
+	margin: 0;
+}
+h3 {
+	font-size: 1.3em;
+	line-height: 1.25em;
+	margin-top: 0;
+	margin-bottom: .5em;
+}
+p {
+	font-size: 1em;
+	line-height: 1.4;
+	margin: 0 0 1em;
+}
+footer {
+	text-align: center;
+	font-weight: bold;
+}
+/* =================================
+  Base Layout Styles
+==================================== */
+
+/* ---- Layout Containers ---- */
+
+.container {
+	width: 94.02985075%;
+	max-width: 1260px;
+	background: #fff; /*pink; */
+	margin: auto;
+}
+.main-header {
+	text-align: center;
+	padding: 2.8em 0;
+}
+.photo-container {
+	text-align: center;
+	margin-bottom: 2.5em;
+}
+/* ---- Page Elements ---- */
+
+.name {
+	font-size: 1.65em;
+	font-weight: 800;
+	margin: 0 0 1.5em;
+	line-height: 1;
+}
+.name span {
+	font-weight: 300;
+	margin-left: -7px;
+}
+.logo {
+	width: 45px;
+	margin-bottom: .4em;
+	cursor: pointer;
+  transition: transform 1s;
+}
+.logo:hover {
+  transform: rotate(360deg);
+}
+.photo-container img {
+ 	max-width: 100%;
+ 	position: relative;
+	z-index: 100;
+}
+.button {
+	color: #fff;
+	width: 75%;
+	font-weight: 700;
+	display: block;
+	text-decoration: none;
+	padding: 20px 0;
+	border-radius: .5em;
+	background: DarkViolet;
+	margin: .3em 0 0;
+}
+.photo {
+	position: relative;
+	line-height: 0;
+}
+/* =================================
+  Button Transitions
+==================================== */
+
+.button {
+	transition: background .3s;
+}
+.button:hover {
+	background: MediumVioletRed;
+	cursor: pointer;
+}
+/* ---- Photo Overlay ---- */
+
+.photo-desc {
+	color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: flex; /* For centering text inside .photo-overlay */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: MediumOrchid;
+	line-height: 0;
+}
+.photo-desc h3 {
+	font-weight: bold;
+}
+/* ---- Float clearfix ---- */
+
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+/* =================================
+  Photo 3D Transforms & Transitions
+==================================== */
+
+.photo-container {
+	perspective: 700px;
+/*	perspective-origin: 50% 100%;*/
+}
+
+.photo {
+	transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
+	transform-style: preserve-3d;
+}
+
+.photo:hover {
+	transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.side-a,
+.side-b {
+	backface-visibility: hidden;
+	border-radius: 9px;
+}
+
+.side-b {
+	transform: rotateY(180deg);
+}
+.side-a {
+	box-shadow: 15px 15px 10px -5px rgba(0,0,0, .8);
+}
+/* =================================
+  						Modal
+==================================== */
+ .modal-title {
+	text-align: center;
+	font-weight: bold;
+	color: DarkViolet;
+	word-spacing: 3px;
+	font-size: 1.3em;
+}
+.modal-body {
+	color: #090a0a;
+	/*font-weight: bold; */
+	word-spacing: 4px;
+	font-size: 1em;
+	text-align: justify;
+}
+.btn {
+	background-color: #9370d8;
+}
+.btn:hover {
+	background-color: DarkViolet;
+}
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 0) and (max-width: 768px) {
+	.container {
+		padding: 0 1.225em 2.5em;
+	}
+}
+@media (min-width: 769px) {
+	.container {
+		padding: 0 2.25em 3em;
+	}
+	.photo-container {
+		width: 48%;
+		float: left;
+		margin-left: 4%;
+	}
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+	.photo-container:nth-child(2n+1) {
+		margin-left: 0;
+		clear: left;
+	}
+
+}
+@media (min-width: 1025px) {
+	.photo-container {
+		width: 30.63973064%;
+	}
+	.photo-container:nth-child(3n+1) {
+		margin-left: 0;
+		clear: left;
+	}
+}
